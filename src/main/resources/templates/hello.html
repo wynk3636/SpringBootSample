@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!-- タイムリーフ利用のための設定 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	Hello World
+	<form action="/hello" method="post">
+		文字を入力
+		<!-- th:Valueで画面からコントローラに値を渡す -->
+		<input type="text" name = "freeText" th:value="${textValue}"/>
+		<input type="submit" value="Click"/>
+	</form>
+</html>
