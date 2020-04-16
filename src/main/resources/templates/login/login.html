@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- タイムリーフ利用のための設定 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- BootStrapの設定 -->
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
+<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.71/js/bootstrap.min.js}"></script>
+<title>Login</title>
+</head>
+<body>
+	<h1>Login</h1>
+	<form action="/login" method="post">
+		<label>UserID</label>
+		<input type="text"/>
+		<br/>
+		<label>Password</label>
+		<input type="password"/>
+		<br/>
+		<button class="btn btn-primary" type="submit">Login</button>
+	</form>
+	<br/>
+	<!-- リンク -->
+	<a th:href="@{'/signup'}">SignUp</a>
+</body>
+</html>
