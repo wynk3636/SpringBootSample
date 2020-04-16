@@ -14,13 +14,23 @@
 		<div class="page-header">
 			<h1>User SignUp</h1>
 		</div>
-		<form action="@{/signup}" method="post">
+		<!-- signupFormをattitudeしたものを取り出し -->
+		<!-- objectとして取り出す -->
+		<form action="/signup" method="post" th:object="${signupForm}">
 			<table class="table table-bordered table-hover">
 				<tr>
 					<th class="active col-sm-3">UserID</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control"/>
+							<input type="text" class="form-control" th:field="*{userId}"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">Password</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" th:field="*{password}"/>
 						</div>
 					</td>
 				</tr>
@@ -28,15 +38,15 @@
 					<th class="active">UserName</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control"/>
+							<input type="text" class="form-control" th:field="*{userName}"/>
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<th class="active">UserID</th>
+					<th class="active">Birthday</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="yyyy/MM/dd"/>
+							<input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}"/>
 						</div>
 					</td>
 				</tr>
@@ -44,7 +54,7 @@
 					<th class="active">Age</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control"/>
+							<input type="text" class="form-control" th:field="*{age}"/>
 						</div>
 					</td>
 				</tr>
@@ -52,14 +62,23 @@
 					<th class="active">Married</th>
 					<td>
 						<div class="form-group">
+							<!-- 拡張For文 -->
 							<div th:each="item:${radioMarriage}">
-								<input type="radio" name="radioMarriage" th:text="${item.key}" th:value="${item.value}"></input>
+								<!-- Mapの取り出し -->
+								<input type="radio" name="radioMarriage" th:text="${item.key}" th:value="${item.value}" th:field="*{marriage}"></input>
 							</div>
 						</div>
 					</td>
 				</tr>
 			</table>
+			<!-- ErrorMessageエリア -->
+			<ul>
+				<li th:each="error : ${#fields.detailedErrors()}">
+					<span th:text="${error.message}">Error Message</span>
+				</li>
+			</ul>
 			<button class="btn btn-primary" type="submit">
+				RegisterUser
 			</button>
 		</form>
 	</div>
