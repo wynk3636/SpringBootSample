@@ -13,4 +13,10 @@
 		<input type="text" name = "freeText" th:value="${textValue}"/>
 		<input type="submit" value="Click"/>
 	</form>
+	<br/>
+	<form action="/hello/db" method="post">
+		従業員IDを入力
+		<input type="text" name="inputEmployeeId" th:value="${inputEmployeeId_Value}"/>
+		<input type="submit" value="Click"/>
+	</form>
 </html>

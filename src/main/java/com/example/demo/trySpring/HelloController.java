@@ -1,5 +1,6 @@
 package com.example.demo.trySpring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,5 +25,21 @@ public class HelloController {
 		model.addAttribute("sendValue", str);
 		//helloResponse.htmlに遷移
 		return "helloResponse";
+	}
+	
+	@Autowired
+	private HelloService service;
+	
+	@PostMapping("/hello/db")
+	public String postDbRequest(@RequestParam("inputEmployeeId")String str, Model model) {
+		int id = Integer.parseInt(str);
+		
+		Employee employee = service.findOne(id);
+		
+		model.addAttribute("id", employee.getEmployeeId());
+		model.addAttribute("name", employee.getEmployeeName());
+		model.addAttribute("age", employee.getAge());
+		
+		return "helloResponseDB";
 	}
 }
