@@ -27,6 +27,7 @@ public class HelloController {
 		return "helloResponse";
 	}
 	
+	//オートワイヤード設定で自動的にDIから取得
 	@Autowired
 	private HelloService service;
 	

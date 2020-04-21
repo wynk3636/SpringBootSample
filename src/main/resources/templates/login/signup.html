@@ -6,7 +6,7 @@
 <!-- BootStrapの設定 -->
 <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
 <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/3.3.71/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 <title>SignUp</title>
 </head>
 <body>
@@ -21,40 +21,47 @@
 				<tr>
 					<th class="active col-sm-3">UserID</th>
 					<td>
-						<div class="form-group">
+						<!-- エラー時だけクラス属性にエラーを追加 -->
+						<div class="form-group" th:classappend="${#fields.hasErrors('userId')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{userId}"/>
+							<!-- th:ifでエラー時だけエラーメッセージ(th:errors)を表示 -->
+							<span class="text-danger" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">Password</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('password')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{password}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">UserName</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('userName')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{userName}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">userName error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">Birthday</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('birthday')}?'has-error'">
 							<input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">birthday error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">Age</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('age')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{age}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</span>
 						</div>
 					</td>
 				</tr>
@@ -67,6 +74,7 @@
 								<!-- Mapの取り出し -->
 								<input type="radio" name="radioMarriage" th:text="${item.key}" th:value="${item.value}" th:field="*{marriage}"></input>
 							</div>
+							<span class="text-danger" th:if="${#fields.hasErrors('marriage')}" th:errors="*{marriage}">marriage error</span>
 						</div>
 					</td>
 				</tr>
