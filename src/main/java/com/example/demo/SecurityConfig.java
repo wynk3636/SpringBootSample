@@ -61,6 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/login").permitAll()//loginページは直リンクOK
 				.antMatchers("/signup").permitAll()//signupページは直リンクOK
 				.antMatchers("/rest/**").permitAll()
+				.antMatchers("/swagger-ui.html", "/swagger-resources/**", "/v2/**").permitAll() //swagger
 				.antMatchers("/admin").hasAuthority("ROLE_ADMIN") //URLで認可設定=>HTML内で認可も可能
 				.anyRequest().authenticated();//それ以外は禁止
 		
