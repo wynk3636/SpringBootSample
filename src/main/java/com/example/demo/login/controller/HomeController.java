@@ -99,6 +99,7 @@ public class HomeController {
 		User user = new User();
 		user.setUserId(form.getUserId()); //ユーザーID
         user.setUserName(form.getUserName()); //ユーザー名
+        user.setPassword(form.getPassword());
         user.setBirthday(form.getBirthday()); //誕生日
         user.setAge(form.getAge()); //年齢
         user.setMarriage(form.isMarriage()); //結婚ステータス

@@ -16,7 +16,7 @@
 		</div>
 		<!-- signupFormをattitudeしたものを取り出し -->
 		<!-- objectとして取り出す -->
-		<form action="/signup" method="post" th:object="${signupForm}">
+		<form th:action="@{/signup}" method="post" th:object="${signupForm}">
 			<table class="table table-bordered table-hover">
 				<tr>
 					<th class="active col-sm-3">UserID</th>

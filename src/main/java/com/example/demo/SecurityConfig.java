@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 //セキュリティ設定
 @EnableWebSecurity
@@ -52,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/webjars/**","/css/**");
 	}
 	@Override
-	public void configure(HttpSecurity http) throws Exception{
+	protected void configure(HttpSecurity http) throws Exception{
 		//直リンク禁止
 		http
 			.authorizeRequests()
@@ -83,7 +84,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.logoutSuccessUrl("/login");
 		
 		//CSRF無効のURL
-		RestMatcher csrfMatcher = new RestMatcher("rest/**");
+		RequestMatcher csrfMatcher = new RestMatcher("/rest/**");
 		//CSRF対策（クロスサイトリクエストフォージェリ）を無効化
 		//http.csrf().disable();
 		//RESTのみCSRFを無効

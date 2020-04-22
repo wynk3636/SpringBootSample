@@ -35,7 +35,9 @@ public class UserRestController {
 	//insert
 	@PostMapping("/rest/insert")
 	public String postUserOne(@RequestBody User user) {
+		System.out.println("insertStart");
 		boolean result = service.insert(user);
+		System.out.println("insert is " + result);
 		String str="";
 		
 		if(result==true) {
