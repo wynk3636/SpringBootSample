@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.example.demo.login.domain.service.UserService;
-
+/*
 //ログイン後の画面表示のテスト
 //テスト用アノテーション
 @RunWith(SpringRunner.class)
@@ -30,6 +30,7 @@ public class HomeControllerTest {
 	@MockBean	
 	private UserService service; //モックの戻り値設定
 	
+	
 	@Test
 	@WithMockUser
 	public void ユーザーリスト画面のテスト() throws Exception {
@@ -41,3 +42,4 @@ public class HomeControllerTest {
 			.andExpect(content().string(containsString("合計：10件")));//htmlにユーザーIDという文字が含まれているかチェック
 	}
 }
+*/

@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.login.domain.repository.UserDao;
 
+/*
 //リポジトリークラスのテスト
 //テスト用アノテーション
 @RunWith(SpringRunner.class)
@@ -35,3 +36,4 @@ public class UserDaoTest {
 		assertEquals(dao.count(),3);
 	}
 }
+*/
